@@ -1,0 +1,155 @@
+@import 'reset.less';
+@import "elements.less";
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+html {
+  height: 100%;
+
+  body {
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    background: #161616 url(../img/todo/background.png) repeat top left;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+
+    @media print {
+      background: #fff;
+    }
+
+
+  }
+}
+.page-container {
+  padding: 46px 0;
+}
+.app-title {
+  margin: 0 0 23px;
+  text-align: center;
+}
+
+/*
+ * todo app
+ */
+ @todo-width: 426px;
+ @left-padding: 58px;
+
+ .todo {
+  display: block;
+  margin: 0 auto;
+  width: @todo-width;
+
+  .task-list {
+    background: url(../img/todo/field.png) -3px 0 repeat-y;
+
+    .add-button {
+      margin: 0 0 0 @left-padding;
+      padding: 0;
+      color: #8b8d8c;
+      font-size: 20px;
+      line-height: 48px;
+      font-weight: normal;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+  .task {
+    background: url(../img/todo/dotted_line.png) -3px 0 no-repeat;
+
+    &:hover {
+      .close-x {
+        visibility: visible;
+      }
+    }
+    input[type=checkbox] {
+      visibility: hidden;
+      position: absolute;
+    }
+    .label {
+      width: 312px;
+      padding: 15px 0 15px 11px;
+      display: inline-block;
+      vertical-align: middle;
+
+      font-size: 20px;
+      line-height: 20px;
+      color: #8b8d8c;
+      cursor: pointer;
+
+      &.checked {
+        color: #cacacf;
+        text-decoration: line-through;
+      }
+    }
+    .box {
+      display: inline-block;
+      margin-left: 9px;
+      height: 40px;
+      width: 40px;
+      vertical-align: middle;
+      background: url(../img/todo/box.png)top left no-repeat;
+      cursor: pointer;
+
+      &.checked {
+        background: url(../img/todo/box_x.png) 0 0 no-repeat;
+        color: #cacacf;
+        text-decoration: line-through;
+      }
+    }
+    .close-x {
+      visibility: hidden;
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      vertical-align: middle;
+      background: url(../img/todo/close.png) left center no-repeat;
+      cursor: pointer;
+    }
+  }
+  .status-bar {
+    height: 50px;
+    background: url(../img/todo/background_navi.png) -3px 0 no-repeat;
+
+    &>div {
+      background: url(../img/todo/shaddow_bottom.png) -3px 0 no-repeat;
+      height: 40px;
+      width:  @todo-width;
+      zoom: 1;
+
+      div {
+        float: left;
+        width: 141px;
+        font-size: 14px;
+        line-height: 40px;
+        color: #8b8d8c;
+        text-align: center;
+
+        &.left {
+          width: 121px;
+          padding-left: 20px;
+          text-align: left;
+        }
+        &.right {
+          width: 121px;
+          padding-right: 20px;
+          text-align: right;
+        }
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  a {
+    color: #8b8d8c;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      color: #cacacf;
+    }
+  }
+}
